@@ -13,6 +13,7 @@ import kotlin.coroutines.*
  * This class is generally used as a bridge between coroutine-based API and
  * asynchronous API that requires an instance of the [Executor].
  */
+@SubclassOptInRequired(BrittleForInheritanceCoroutinesApi::class)
 public abstract class ExecutorCoroutineDispatcher: CoroutineDispatcher(), Closeable {
     /** @suppress */
     @ExperimentalStdlibApi
@@ -115,6 +116,7 @@ private class DispatcherExecutor(@JvmField val dispatcher: CoroutineDispatcher) 
     override fun toString(): String = dispatcher.toString()
 }
 
+@OptIn(BrittleForInheritanceCoroutinesApi::class)
 internal class ExecutorCoroutineDispatcherImpl(override val executor: Executor) : ExecutorCoroutineDispatcher(), Delay {
 
     /*

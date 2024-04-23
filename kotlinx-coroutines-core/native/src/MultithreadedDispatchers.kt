@@ -16,6 +16,7 @@ public actual fun newFixedThreadPoolContext(nThreads: Int, name: String): Closea
     return MultiWorkerDispatcher(name, nThreads)
 }
 
+@OptIn(BrittleForInheritanceCoroutinesApi::class)
 internal class WorkerDispatcher(name: String) : CloseableCoroutineDispatcher(), Delay {
     private val worker = Worker.start(name = name)
 
@@ -74,6 +75,7 @@ internal class WorkerDispatcher(name: String) : CloseableCoroutineDispatcher(), 
     }
 }
 
+@OptIn(BrittleForInheritanceCoroutinesApi::class)
 private class MultiWorkerDispatcher(
     private val name: String,
     workersCount: Int
