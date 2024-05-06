@@ -16,7 +16,7 @@ public expect open class LockFreeLinkedListNode() {
 
 }
 
-internal fun LockFreeLinkedListNode.addLast(node: LockFreeLinkedListNode) = addLastIf(node) { true }
+fun LockFreeLinkedListNode.addLast(node: LockFreeLinkedListNode) = addLastIf(node) { true }
 
 /** @suppress **This is unstable API and it is subject to change.** */
 public expect open class LockFreeLinkedListHead() : LockFreeLinkedListNode {
